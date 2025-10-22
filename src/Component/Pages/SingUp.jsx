@@ -2,11 +2,13 @@ import { Button } from "flowbite-react";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 const SingUp = () => {
   const [Name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   // ====singUpBTN======
   const handleSignup = (e) => {
@@ -19,6 +21,7 @@ const SingUp = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          navigate("/Login");
           // ...
         })
         .catch((error) => {
@@ -32,10 +35,10 @@ const SingUp = () => {
   // ====singUpBTN======
   return (
     <>
-      <div className="flex justify-center items-center h-80 bg-gray-400">
+      <div className="flex justify-center items-center h-80 bg-[#16476A]">
         <form
           onSubmit={handleSignup}
-          className="bg-white p-6 rounded-lg shadow-md w-80">
+          className="bg-[#3B9797] p-6 rounded-lg shadow-md w-80">
           <Toaster />
           <h2 className="text-xl font-bold mb-4 text-center">Signup</h2>
           <input
@@ -57,7 +60,7 @@ const SingUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            className="w-full bg-[#BF092F] text-white py-2 rounded hover:bg-gray-900"
             type="submit">
             Signup
           </Button>

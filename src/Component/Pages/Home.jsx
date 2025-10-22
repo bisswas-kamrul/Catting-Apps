@@ -1,12 +1,13 @@
-import React from 'react'
-import Login from './Login'
+import React from "react";
+
+import SingUp from "./SingUp";
 
 const Home = () => {
   return (
     <>
-    <Login/>
+      <SingUp />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
