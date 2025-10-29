@@ -1,4 +1,5 @@
 import React from "react";
+import userpic from "../../assets/my image.png"
 
 const DashBord = () => {
   return (
@@ -17,6 +18,7 @@ const DashBord = () => {
         <main className="flex flex-1">
           {/* Sidebar */}
           <aside className="w-64 bg-gray-800 border-r border-gray-700 p-5 hidden md:block">
+            <img src={userpic} alt={"userpic"} className="w-[40%] pb-3"/>
             <nav className="space-y-3">
               <a
                 href="#"
@@ -50,6 +52,21 @@ const DashBord = () => {
               <p className="text-3xl font-bold text-green-400">$12,560</p>
             </div>
 
+            {/* Card 3 */}
+            <div className="bg-gray-800 p-5 rounded-2xl shadow-lg hover:shadow-xl transition">
+              <h2 className="text-lg font-semibold mb-2">Orders</h2>
+              <p className="text-3xl font-bold text-amber-400">320</p>
+            </div>
+            {/* Card 3 */}
+            <div className="bg-gray-800 p-5 rounded-2xl shadow-lg hover:shadow-xl transition">
+              <h2 className="text-lg font-semibold mb-2">Orders</h2>
+              <p className="text-3xl font-bold text-amber-400">320</p>
+            </div>
+            {/* Card 3 */}
+            <div className="bg-gray-800 p-5 rounded-2xl shadow-lg hover:shadow-xl transition">
+              <h2 className="text-lg font-semibold mb-2">Orders</h2>
+              <p className="text-3xl font-bold text-amber-400">320</p>
+            </div>
             {/* Card 3 */}
             <div className="bg-gray-800 p-5 rounded-2xl shadow-lg hover:shadow-xl transition">
               <h2 className="text-lg font-semibold mb-2">Orders</h2>

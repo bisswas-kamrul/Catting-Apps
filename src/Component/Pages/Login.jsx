@@ -3,10 +3,11 @@ import { Button } from "flowbite-react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 const Login = () => {
   const [Email, SetEmail] = useState("");
   const [Password, SetPassword] = useState("");
-
+  const navigate = useNavigate()
   const HendeleLoginBtn = (e) => {
     e.preventDefault();
     if (!Email || !Password) {
@@ -17,12 +18,13 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          navigate("/DashBord")
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          toast.success("Successfully toasted!");
+          toast.error("This didn't work.")
         });
     }
   };
