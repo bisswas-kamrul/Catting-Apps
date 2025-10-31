@@ -11,7 +11,7 @@ const Header = () => {
                 <Link to={"/"}><li className="text-base text-cyan-300 font-medium capitalize">home</li></Link>
                 <Link to={"/singUp"}><li className="text-base text-cyan-300 font-medium capitalize">singUp</li></Link>
                 <Link to={"login"}><li className="text-base text-cyan-300 font-medium capitalize">login</li></Link>
-               <Link to={"/DashBord"}> <li className="text-base text-cyan-300 font-medium capitalize">DashBord</li></Link>
+               {/* <Link to={"/DashBord"}> <li className="text-base text-cyan-300 font-medium capitalize">DashBord</li></Link> */}
             </ul>
         </div>
     </div>
