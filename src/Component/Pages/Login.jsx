@@ -4,10 +4,12 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { UserLogine } from "../../Slice/UserLogin";
 const Login = () => {
   const [Email, SetEmail] = useState("");
   const [Password, SetPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const HendeleLoginBtn = (e) => {
     e.preventDefault();
     if (!Email || !Password) {
@@ -18,16 +20,23 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/DashBord")
+          navigate("/DashBord");
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          toast.error("This didn't work.")
+          toast.error("This didn't work.");
         });
     }
   };
+  // data cushe
+  const UseLoginData = useSelector((state) => state.UserLogin.value);
+ const dispatch = useDispatch(UseLoginData)
+  // data cushe
+  // custom data
+   
+  // custom data 
   return (
     <>
       <form onSubmit={HendeleLoginBtn}>
@@ -35,6 +44,7 @@ const Login = () => {
         <div className="flex justify-center items-center h-80 bg-[#16476A]">
           <div className="bg-[#3B9797] p-6 rounded-lg shadow-md w-80">
             <h2 className="text-xl font-bold mb-4 text-center">Login</h2>
+            {/* <h2>{UseLoginData}</h2>  curly die page show kora  */}
             <input
               className="border w-full mb-3 p-2 rounded"
               placeholder="Email"
