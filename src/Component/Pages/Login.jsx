@@ -32,15 +32,28 @@ const Login = () => {
   };
   // data cushe
   const UseLoginData = useSelector((state) => state.UserLogin.value);
- const dispatch = useDispatch(UseLoginData)
+ const dispatch = useDispatch()
   // data cushe
   // custom data
-   
+   const UserLoginData = () =>{
+    const customDat = {
+      id: Date.now(),
+      name: 'Kamrul Biswas',
+      ege: "27",
+    }
+     dispatch(UserLogine(customDat))
+     console.log(customDat)
+   }
   // custom data 
   return (
     <>
       <form onSubmit={HendeleLoginBtn}>
         <Toaster />
+        <Button
+              className="w-full bg-[#BF092F] text-white py-2 rounded" onClick={UserLoginData}
+              type="submit">
+              Login
+            </Button>
         <div className="flex justify-center items-center h-80 bg-[#16476A]">
           <div className="bg-[#3B9797] p-6 rounded-lg shadow-md w-80">
             <h2 className="text-xl font-bold mb-4 text-center">Login</h2>
