@@ -5,11 +5,12 @@ import toast, { Toaster } from "react-hot-toast";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { UserLogine } from "../../Slice/UserLogin";
+import {  UserLogine,  } from "../../Slice/UserLogin";
 const Login = () => {
   const [Email, SetEmail] = useState("");
   const [Password, SetPassword] = useState("");
   const navigate = useNavigate();
+   const dispatch = useDispatch()
   const HendeleLoginBtn = (e) => {
     e.preventDefault();
     if (!Email || !Password) {
@@ -21,6 +22,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           navigate("/DashBord");
+          dispatch( UserLogine(user))
           // ...
         })
         .catch((error) => {
@@ -31,29 +33,13 @@ const Login = () => {
     }
   };
   // data cushe
-  const UseLoginData = useSelector((state) => state.UserLogin.value);
- const dispatch = useDispatch()
+  // const UseLoginData = useSelector((state) => state.UserLogin.value);
   // data cushe
-  // custom data
-   const UserLoginData = () =>{
-    const customDat = {
-      id: Date.now(),
-      name: 'Kamrul Biswas',
-      ege: "27",
-    }
-     dispatch(UserLogine(customDat))
-     console.log(customDat)
-   }
-  // custom data 
+  
   return (
     <>
       <form onSubmit={HendeleLoginBtn}>
         <Toaster />
-        <Button
-              className="w-full bg-[#BF092F] text-white py-2 rounded" onClick={UserLoginData}
-              type="submit">
-              Login
-            </Button>
         <div className="flex justify-center items-center h-80 bg-[#16476A]">
           <div className="bg-[#3B9797] p-6 rounded-lg shadow-md w-80">
             <h2 className="text-xl font-bold mb-4 text-center">Login</h2>

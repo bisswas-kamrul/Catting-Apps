@@ -14,8 +14,8 @@ function App() {
           <Route index path="/" element={<Home />} />
           <Route index path="/Login" element={<Login />} />
           <Route index path="/Singup" element={<SingUp />} />
-          <Route index path="/DashBord" element={<DashBord />} />
         </Route>
+          <Route index path="/DashBord" element={<DashBord />} />
       </Routes>
     </>
   );

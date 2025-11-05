@@ -10,7 +10,13 @@ import Odear1 from "../../assets/Odear.png"
 import FrendRecust from "../../assets/frendRecust.png"
 import group4 from "../../assets/group-4.png"
 import unblock from "../../assets/unblock.png"
+import { useSelector } from "react-redux";
+import { Link, Navigate } from "react-router";
 const DashBord = () => {
+ const cushdata = useSelector((state) => state.UserLogin.value)
+ if (!cushdata) {
+  return <Navigate to = "/Singup"/>
+ }
   return (
     <>
       {/* Dashboard main container */}
@@ -29,10 +35,10 @@ const DashBord = () => {
           <aside className="w-64 bg-gray-800 border-r border-gray-700 p-5 hidden md:block">
             <img src={userpic} alt={"userpic"} className="w-[40%] pb-3" />
             <nav className="space-y-3">
-              <div className="flex items-center gap-x-2  px-3 rounded-lg hover:bg-gray-700 transition">
+            <Link to={"/DashBord"}><div className="flex items-center gap-x-2  px-3 rounded-lg hover:bg-gray-700 transition">
                 <IoHomeOutline />
                 <h5 className="">Home</h5>
-              </div>
+              </div></Link>
               <div className="flex items-center gap-x-2 px-3 rounded-lg hover:bg-gray-700 transition">
                 <IoChatboxEllipsesOutline />
                 <h5 className="">Chat</h5>
@@ -130,31 +136,9 @@ const DashBord = () => {
             <div className="bg-gray-800 p-5 rounded-2xl shadow-lg hover:shadow-xl transition">
               <h2 className="text-lg font-semibold mb-2">User List</h2>
                <div className="flex items-center py-5 justify-between">
-                <img src={Odear1} alt={"Odear1-1"} className="w-[50px]" />
+                <img src={cushdata?.photoURL || userpic} alt={"userpic"} className="w-[50px]" />
                 <p className="text-[12px] font-semibold text-indigo-400">
-                  Swathi <br></br><spn className=" font-normal ">Today, 2:31pm</spn>
-                </p>
-                <button
-                  type="submit"
-                  className="text-white  bg-[#1A3D64] hover:bg-gray-800 font-medium rounded-lg text-sm px-4 py-2 ">
-                 +
-                </button>
-              </div>
-               <div className="flex items-center py-5 justify-between">
-                <img src={Odear1} alt={"Odear1-1"} className="w-[50px]" />
-                <p className="text-[12px] font-semibold text-indigo-400">
-                Marvin McKinney <br></br><spn className=" font-normal ">Hi Guys, Wassup</spn>
-                </p>
-                <button
-                  type="submit"
-                  className="text-white  bg-[#1A3D64] hover:bg-gray-800 font-medium rounded-lg text-sm px-4 py-2 ">
-                 +
-                </button>
-              </div>
-               <div className="flex items-center py-5 justify-between">
-                <img src={Odear1} alt={"Odear1-1"} className="w-[50px]" />
-                <p className="text-[12px] font-semibold text-indigo-400">
-                  Tejeshwini <br></br><spn className=" font-normal ">Hi Guys, Wassup</spn>
+                {cushdata?.displayName || cushdata?.email}
                 </p>
                 <button
                   type="submit"
