@@ -36,19 +36,19 @@ const DashBord = () => {
             <img src={userpic} alt={"userpic"} className="w-[40%] pb-3" />
             <nav className="space-y-3">
             <Link to={"/DashBord"}><div className="flex items-center gap-x-2  px-3 rounded-lg hover:bg-gray-700 transition">
-                <IoHomeOutline />
+                <IoHomeOutline  className="text-2xl"/>
                 <h5 className="">Home</h5>
               </div></Link>
               <div className="flex items-center gap-x-2 px-3 rounded-lg hover:bg-gray-700 transition">
-                <IoChatboxEllipsesOutline />
-                <h5 className="">Chat</h5>
+                <IoChatboxEllipsesOutline  className="text-2xl mt-4"/>
+                <h5 className="pt-3">Chat</h5>
               </div>
               <div className="flex items-center gap-x-2 px-3 rounded-lg hover:bg-gray-700 transition">
-                <IoMdNotificationsOutline />
+                <IoMdNotificationsOutline className="text-2xl" />
                 <h5 className="">Notification</h5>
               </div>
               <div className="flex items-center gap-x-2 px-3 rounded-lg hover:bg-gray-700 transition">
-                <IoSettingsOutline />
+                <IoSettingsOutline  className="text-2xl"/>
                 <h5 className="">Setting</h5>
               </div>
             </nav>
@@ -132,7 +132,7 @@ const DashBord = () => {
               </div>
             </div>
             
-            {/* Card 3 */}
+            {/* User list part */}
             <div className="bg-gray-800 p-5 rounded-2xl shadow-lg hover:shadow-xl transition">
               <h2 className="text-lg font-semibold mb-2">User List</h2>
                <div className="flex items-center py-5 justify-between">

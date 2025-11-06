@@ -32,10 +32,7 @@ const Login = () => {
         });
     }
   };
-  // data cushe
-  // const UseLoginData = useSelector((state) => state.UserLogin.value);
-  // data cushe
-  
+ 
   return (
     <>
       <form onSubmit={HendeleLoginBtn}>
