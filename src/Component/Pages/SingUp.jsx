@@ -1,7 +1,12 @@
 import { Button } from "flowbite-react";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
 import { useNavigate } from "react-router";
 
 const SingUp = () => {
@@ -21,7 +26,13 @@ const SingUp = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          navigate("/Login");
+          updateProfile(user, {
+            displayName: Name, // ekhane name holo input er value
+          });
+          sendEmailVerification(user).then(() => {
+            toast.success("Verification sent to your email ✅");
+          });
+        navigate("/Login");
           // ...
         })
         .catch((error) => {

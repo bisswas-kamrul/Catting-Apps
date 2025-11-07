@@ -6,7 +6,6 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import group1 from "../../assets/groups-1.png";
 import frend from "../../assets/Frend-.png"
-import Odear1 from "../../assets/Odear.png"
 import FrendRecust from "../../assets/frendRecust.png"
 import group4 from "../../assets/group-4.png"
 import unblock from "../../assets/unblock.png"
@@ -138,7 +137,7 @@ const DashBord = () => {
                <div className="flex items-center py-5 justify-between">
                 <img src={cushdata?.photoURL || userpic} alt={"userpic"} className="w-[50px]" />
                 <p className="text-[12px] font-semibold text-indigo-400">
-                {cushdata?.displayName || cushdata?.email}
+                { cushdata?.displayName} {cushdata?.email}
                 </p>
                 <button
                   type="submit"
