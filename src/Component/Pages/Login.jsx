@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "flowbite-react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { getAuth, signInWithEmailAndPassword ,onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword ,onAuthStateChanged ,signOut } from "firebase/auth";
 import { useNavigate } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch,  } from "react-redux";
 import {  UserLogine,  } from "../../Slice/UserLogin";
 const Login = () => {
   const [Email, SetEmail] = useState("");
   const [Password, SetPassword] = useState("");
   const navigate = useNavigate();
    const dispatch = useDispatch()
+     const auth = getAuth();
+     onAuthStateChanged(auth, (user) => {
+  if (user) {
+    dispatch( UserLogine({
+      uid: user.uid,
+      name: user.displayName,
+      email: user.email
+          }))
+    // ...
+  } else { 
+    // ...
+  }
+});
   const HendeleLoginBtn = (e) => {
     e.preventDefault();
     if (!Email || !Password) {
@@ -22,11 +35,11 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           navigate("/DashBord");
-          dispatch( UserLogine({
-            uid: user.uid,
-          name: Name,
-          email: user.email
-          }))
+          // dispatch( UserLogine({
+          //   uid: user.uid,
+          // name: Name,
+          // email: user.email
+          // }))
           // ...
         })
         .catch((error) => {

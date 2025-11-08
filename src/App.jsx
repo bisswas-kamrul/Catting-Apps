@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import "./App.css";
 import RootLayout from "./RootLayout";
 import Home from "./Component/Pages/Home";
 import Login from "./Component/Pages/Login";
 import SingUp from "./Component/Pages/SingUp";
 import DashBord from "./Component/Pages/DashBord";
-
 function App() {
   return (
     <>

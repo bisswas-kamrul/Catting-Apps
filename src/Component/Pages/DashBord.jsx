@@ -10,12 +10,24 @@ import FrendRecust from "../../assets/frendRecust.png"
 import group4 from "../../assets/group-4.png"
 import unblock from "../../assets/unblock.png"
 import { useSelector } from "react-redux";
-import { Link, Navigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
+import { getAuth, signOut } from "firebase/auth"
+import toast from "react-hot-toast";
+
 const DashBord = () => {
  const cushdata = useSelector((state) => state.UserLogin.value)
  if (!cushdata) {
   return <Navigate to = "/Singup"/>
  }
+ const navigate = useNavigate();
+const auth = getAuth();
+const handleSignOut = ()=>{
+signOut(auth).then(() => {
+navigate("/Singup")
+ toast.success('Successfully LogOut!')
+})
+
+}
   return (
     <>
       {/* Dashboard main container */}
@@ -23,7 +35,7 @@ const DashBord = () => {
         {/* Top Navbar */}
         <header className="w-full bg-gray-800 shadow-md p-4 flex justify-between items-center">
           <h1 className="text-xl font-semibold text-white">Dashboard</h1>
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition">
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition"  onClick={handleSignOut}>
             Logout
           </button>
         </header>
@@ -137,7 +149,7 @@ const DashBord = () => {
                <div className="flex items-center py-5 justify-between">
                 <img src={cushdata?.photoURL || userpic} alt={"userpic"} className="w-[50px]" />
                 <p className="text-[12px] font-semibold text-indigo-400">
-                { cushdata?.displayName} {cushdata?.email}
+                {cushdata?.name} {cushdata?.email}
                 </p>
                 <button
                   type="submit"
