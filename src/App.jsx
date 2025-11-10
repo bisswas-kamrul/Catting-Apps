@@ -5,6 +5,7 @@ import Home from "./Component/Pages/Home";
 import Login from "./Component/Pages/Login";
 import SingUp from "./Component/Pages/SingUp";
 import DashBord from "./Component/Pages/DashBord";
+import Notifacaton from "./Component/Pages/Notifacaton";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route index path="/Singup" element={<SingUp />} />
         </Route>
           <Route index path="/DashBord" element={<DashBord />} />
+          <Route index path="/Notifacaton" element={<Notifacaton />} />
       </Routes>
     </>
   );

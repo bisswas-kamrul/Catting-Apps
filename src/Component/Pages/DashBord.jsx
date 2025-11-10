@@ -17,7 +17,7 @@ import toast from "react-hot-toast";
 const DashBord = () => {
  const cushdata = useSelector((state) => state.UserLogin.value)
  if (!cushdata) {
-  return <Navigate to = "/Singup"/>
+  // return <Navigate to = "/Singup"/>
  }
  const navigate = useNavigate();
 const auth = getAuth();
@@ -54,10 +54,12 @@ navigate("/Singup")
                 <IoChatboxEllipsesOutline  className="text-2xl mt-4"/>
                 <h5 className="pt-3">Chat</h5>
               </div>
+             <Link to ={"/Notifacaton"}>
               <div className="flex items-center gap-x-2 px-3 rounded-lg hover:bg-gray-700 transition">
                 <IoMdNotificationsOutline className="text-2xl" />
                 <h5 className="">Notification</h5>
               </div>
+             </Link>
               <div className="flex items-center gap-x-2 px-3 rounded-lg hover:bg-gray-700 transition">
                 <IoSettingsOutline  className="text-2xl"/>
                 <h5 className="">Setting</h5>
